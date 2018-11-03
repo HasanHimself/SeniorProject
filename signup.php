@@ -55,7 +55,12 @@
   <div class="row">
     <div class="col-lg-12">
       <h1>Sign Up</h1>
-      <footer style="color: grey; font-style: italic;">All fields are required</footer>
+      <?php
+        foreach($errors as $error)
+        {
+          echo "<footer style='color: red; font-style: italic;'>" . $error . "</footer>";
+        }
+      ?>
 
       <form method="post" action="signup.php" class="signupform">
         <div class="form-group">
