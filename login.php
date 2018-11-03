@@ -57,7 +57,12 @@
   <div class="row">
     <div class="col-lg-12">
       <h1>User login</h1>
-      <footer style="color: grey; font-style: italic;">All fields are required</footer>
+      <?php
+        if($error)
+        {
+          echo "<footer style='color: red; font-style: italic;'>Invalid email and password.</footer>";
+        }
+      ?>
 
       <form method="post" action="login.php" class="signupform">
         <div class="form-group">

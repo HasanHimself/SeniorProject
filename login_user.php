@@ -7,6 +7,7 @@
 
 	$db = mysqli_connect($dbhost, $dbuser, $dbpw, $dbname);
 	$errors = array();
+	$error = false;
 
 	if(isset($_POST['submit']))
 	{
@@ -39,7 +40,7 @@
 			else
 			{
 				array_push($errors, 'Invalid email and password');
-				echo "kek";
+				$error = true;
 			}
 		}
 	}
