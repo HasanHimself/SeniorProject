@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <a href="signup.html" class="btn btn-default btn-lg btn-register" role="button">Register now</a>
+    <a href="signup.php" class="btn btn-default btn-lg btn-register" role="button">Register now</a>
   </div>
 
 <div class="col-lg-4 footer-col">

@@ -49,7 +49,7 @@
 			{
 				array_push($errors, 'A phone number is required');
 			}
-		elseif(strlen($_POST['phone']) != 10)
+		elseif(strlen($_POST['phone']) != 10 || !is_numeric($_POST['phone']))
 		{
 			array_push($errors, 'Phone numbers need to have exactly 10 digits');
 		}
