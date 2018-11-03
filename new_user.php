@@ -6,6 +6,12 @@
 	$dbname = "senior_project";
 	$db = mysqli_connect($dbhost, $dbuser, $dbpw, $dbname);
 
+	$email = "";
+	$password = "";
+	$phone = "";
+	$first_name = "";
+	$last_name = "";
+
 	if(mysqli_connect_errno())
 	{
 		printf("Couldn't connect to the database: %s\n", mysqli_connect_error($db));
@@ -45,7 +51,7 @@
 			}
 		elseif(strlen($_POST['phone']) != 10)
 		{
-			array_push($errors, 'Invalid phone number');
+			array_push($errors, 'Phone numbers need to have exactly 10 digits');
 		}
 		else
 			{
@@ -93,11 +99,7 @@
 			{
 				array_push($errors, 'Phone number already exists');
 			}	
-
-			foreach($errors as $error)
-			{
-				echo $error;
-			}
+			
 			if(count($errors) == 0)
 			{
 				$query = "INSERT INTO user(email, password, phone, first_name, last_name) VALUES('$email', '$password', '$phone', '$first_name', '$last_name')";
