@@ -1,0 +1,14 @@
+<?php
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}	
+	if(isset($_SESSION['name']))
+	{
+		require_once('index_user.php');
+	}
+	else
+	{
+		require_once('index_default.php');
+	}
+?>
