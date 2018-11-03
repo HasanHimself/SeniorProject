@@ -69,8 +69,6 @@
           <label for="phone">Password:</label>
           <input type="password" name="password" class="form-control" placeholder="Enter your password" required/>
         </div>
-		
-		<!-- Hello everyone -->
 
         <button type="submit" name="submit" class="btn btn-default btn-lg btn-register">Submit</button>
       </form>
