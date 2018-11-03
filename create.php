@@ -71,7 +71,7 @@
 
         <div class="form-group">
           <label for="location">Your location</label>
-          <span style="font-style: italic">Google Maps [later]</span>
+          <span style="font-style: italic">Google Maps [later1111]</span>
         </div>
 
         <div class="form-group">
