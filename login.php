@@ -6,7 +6,7 @@
   }
   include('login_user.php');
 ?>
-<!-- My name is Jeff -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
