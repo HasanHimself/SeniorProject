@@ -40,7 +40,7 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-    	<li><a href="proj/signup.php">Sign Up</a></li>
+    	<li><a href="signup.php">Sign Up</a></li>
       	<li class="active"><a href="#">Login</a></li>
     </ul>
 
