@@ -1,3 +1,12 @@
+<?php
+  $dbhost = "localhost";
+  $dbuser = "root";
+  $dbpw = "";
+  $dbname = "senior_project";
+
+  $db = mysqli_connect($dbhost, $dbuser, $dbpw, $dbname);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +17,19 @@
   <link rel="stylesheet" href="custom.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="js/create.js"></script>
+
+
+<!-- <script>
+      $(document).ready(function() {
+            $("#categories").change(function() {
+            alert("kkk");
+    });
+
+      });
+    
+</script> -->
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -31,15 +53,15 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-    	  <li><a href="#">Sign Up</a></li>
-      	<li><a href="#">Login</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Login</a></li>
     </ul>
 
     <form class="navbar-form navbar-right" action="/results.php">
-    	<div class="form-group">
-    		<input type="text" class="form-control" placeholder="Search">
-    	</div>
-    	<button type="submit" class="btn btn-default">Submit</button>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 </nav>
@@ -53,19 +75,16 @@
         <div class="form-group">
           <label for="category">Category</label>
           <select class="form-control" id="category">
-            <option>Communications</option>
-            <option>Resturants</option>
-            <option>Banks</option>
+            <option value="" style="font-style: italic" selected disabled hidden>Please choose a category</option>
+            <option value="communications">Communications</option>
+            <option value="resturants">Resturants</option>
+            <option value="banks">Banks</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="company">Company</label>
           <select class="form-control" id="company">
-            <option>STC</option>
-            <option>Mobily</option>
-            <option>Zain</option>
-            <option>Virgin</option>
           </select>
         </div>
 
@@ -80,6 +99,14 @@
             <option>Hira St., al-Nahdah</option>
             <option>Taibah District</option>
             <option>etcetc</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select class="form-control" id="service">
+            <option>Support</option>
+            <option>Issuing SIM</option>
           </select>
         </div>
 

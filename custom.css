@@ -112,3 +112,10 @@ label {font-size: 1.3em;
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.ticket-step {
+	border: 1px solid blue;
+	border-radius: 3px;
+	margin-top: 10px;
+	text-align: center;
+	padding:;}
