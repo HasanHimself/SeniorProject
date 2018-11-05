@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Queue Waiting</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      
+</head>
+<body onload="startTime()">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ticket
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="create.html">Create</a></li>
+          <li><a href="#">Modify</a></li>
+        </ul>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+    	<li><a href="signup.html">Sign Up</a></li>
+      <li class="dropdown">
+	  <li><a href="loging.html">Login</a></li>
+	        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">user<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    
+   
+  </div></nav>
+  
+
+<div class="container">
+	  <div style="width:100%; max-width: 550px; margin:0 auto;">
+            <div class="panel panel-default">
+			
+                <div class="tab">
+				   
+  <button class="tablinks" ">User profile</button>
+				</div>
+				
+                <div class="panel-body">
+                <!-- Tab content -->
+
+                    
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" id="name" class="form-control" required />
+                        </div>
+                       
+                        
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="Email" id="Email" class="form-control" required />
+                        </div>
+						
+						<div class="form-group">
+                            <label>Mobile</label>
+                            <input type="text" name="Mobile" id="Mobile" class="form-control" required />
+                        </div>
+						
+						<div class="form-group">
+                            <label>Password</label>
+                            <input type="text" name="Password" id="Password" class="form-control" required />
+                        </div>
+						
+																		
+												
+                        <div class="col-md-9" style="margin-top:24px;" align="center">
+                        <button id="edit-btn" onclick="$(this).parents('.items').edit()" class="btn btn-danger">edit</button>
+                                           
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group" align="center">
+                            <br /><br />
+                            <input type="submit" name="save" class="btn btn-success" value="save" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+     </div>
+
+
+</body>
+</html>
