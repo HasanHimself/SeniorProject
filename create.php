@@ -84,7 +84,7 @@
 
         <div class="form-group">
           <label for="company">Company</label>
-          <select class="form-control" id="company">
+          <select class="form-control" id="company" disabled="true">
           </select>
         </div>
 
@@ -95,7 +95,7 @@
 
         <div class="form-group">
           <label for="branch">Branch</label>
-          <select class="form-control" id="branch">
+          <select class="form-control" id="branch" disabled="true">
             <option>Hira St., al-Nahdah</option>
             <option>Taibah District</option>
             <option>etcetc</option>
@@ -104,7 +104,7 @@
 
         <div class="form-group">
           <label for="service">Service</label>
-          <select class="form-control" id="service">
+          <select class="form-control" id="service" disabled="true">
             <option>Support</option>
             <option>Issuing SIM</option>
           </select>

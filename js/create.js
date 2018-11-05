@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 
 			$dropdownComp.empty();
+			$dropdownComp.prop("disabled", false);
 
         	$.each(companiesInCat, function(index, value) {
         	$dropdownComp.append("<option " + "value = '" + value + "'>" + value + "</option>");
