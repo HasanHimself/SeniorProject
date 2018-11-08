@@ -1,7 +1,10 @@
 $(document).ready(function() {
+
   $("#category").change(function() {
-  	    var $dropdownCat = $(this);
-      	var $dropdownComp = $("#company");
+      var $dropdownCat = $(this);
+      var $dropdownComp = $("#company");
+      $("#branch").empty();
+      $("#service").empty();
   		$.getJSON("categories.json", function(data) {
   			var selectedCat = $dropdownCat.val();
   			var companiesInCat = [];
@@ -18,9 +21,12 @@ $(document).ready(function() {
 					}
 
 
-			$dropdownComp.empty();
-			$dropdownComp.prop("disabled", false);
-
+			if($dropdownComp.prop("disabled") == true) {
+        $dropdownComp.prop("disabled", false);
+        }
+          $dropdownComp.empty();
+          
+          $dropdownComp.append("<option value=''>Choose a company</option>");
         	$.each(companiesInCat, function(index, value) {
         	$dropdownComp.append("<option " + "value = '" + value + "'>" + value + "</option>");
         });
@@ -31,6 +37,24 @@ $(document).ready(function() {
 
       	
 
-    });        
+    }); 
+
+  $("#company").change(function() {
+
+    $("#service").empty();
+    $dropdownComp = $(this);
+    $dropdownBranch = $("#branch");
+    $dropdownBranch.prop("disabled", false);
+    $dropdownBranch.load("compgetter.php?choice=" + $dropdownComp.val());
+  });       
+
+  $("#branch").change(function() {
+    $dropdownBranch = $(this);
+    $dropdownService = $("#service");
+    $dropdownService.prop("disabled", false);
+    $dropdownService.load("branchgetter.php?choice=" + $dropdownBranch.val());
+
+
+  });
 
 });

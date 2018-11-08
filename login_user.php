@@ -29,12 +29,15 @@
 			$email = strtolower($email);
 			$password = clean_input($_POST['password']);
 			$password = md5($password);
-			$query = "SELECT first_name FROM user WHERE email = '$email' AND password = '$password'";
+			$query = "SELECT id, first_name FROM user WHERE email = '$email' AND password = '$password'";
 			$result = mysqli_query($db, $query);
 			$num_rows = mysqli_num_rows($result);
 			if($num_rows > 0)
 			{
-				$_SESSION['name'] = mysqli_fetch_assoc($result)['first_name'];
+				$records = mysqli_fetch_assoc($result);
+				$_SESSION['id'] = $records['id'];
+				$_SESSION['name'] = $records['first_name'];
+				
 				header('location: /proj');
 			}
 			else

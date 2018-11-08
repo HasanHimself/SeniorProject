@@ -1,10 +1,13 @@
 <?php
-  $dbhost = "localhost";
-  $dbuser = "root";
-  $dbpw = "";
-  $dbname = "senior_project";
+  session_start();
+  if(empty($_SESSION['name']))
+  {
+    header('location: index.php');
+  }
+  // echo $_SESSION['name'] . "\n";
+  // echo $_SESSION['id'];
+  include('new_ticket.php');
 
-  $db = mysqli_connect($dbhost, $dbuser, $dbpw, $dbname);
 ?>
 
 <!DOCTYPE html>
@@ -21,40 +24,38 @@
   <script src="js/create.js"></script>
 
 
-<!-- <script>
-      $(document).ready(function() {
-            $("#categories").change(function() {
-            alert("kkk");
-    });
 
-      });
-    
-</script> -->
 </head>
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Queue Waiting</a>
+      <a class="navbar-brand" href="#"><img src="img/logo.jpg"/></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ticket
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Create</a></li>
+          <li><a href="create.html">Create</a></li>
           <li><a href="#">Modify</a></li>
         </ul>
       </li>
-      <li><a href="#">Services</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">About Us</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Login</a></li>
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['name'];?><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+          </ul>
+        </li>
     </ul>
 
     <form class="navbar-form navbar-right" action="/results.php">
@@ -71,7 +72,7 @@
     <div class="col-lg-12">
       <h1>Create a ticket</h1>
 
-      <form action="#" class="signupform">
+      <form action="create.php" method="post" class="signupform">
         <div class="form-group">
           <label for="category">Category</label>
           <select class="form-control" id="category">
@@ -84,7 +85,7 @@
 
         <div class="form-group">
           <label for="company">Company</label>
-          <select class="form-control" id="company" disabled="true">
+          <select class="form-control" id="company" name="company" disabled="true">
           </select>
         </div>
 
@@ -95,29 +96,24 @@
 
         <div class="form-group">
           <label for="branch">Branch</label>
-          <select class="form-control" id="branch" disabled="true">
-            <option>Hira St., al-Nahdah</option>
-            <option>Taibah District</option>
-            <option>etcetc</option>
+          <select class="form-control" id="branch" name="branch" disabled="true">
           </select>
         </div>
 
         <div class="form-group">
           <label for="service">Service</label>
-          <select class="form-control" id="service" disabled="true">
-            <option>Support</option>
-            <option>Issuing SIM</option>
+          <select class="form-control" id="service" name="service" disabled="true">
           </select>
         </div>
 
 
 
-        <div class="form-group">
+<!--         <div class="form-group">
           <footer>Current ticket: 12</footer>
           <footer>Last issued ticket: 21</footer>
-        </div>
+        </div> -->
 
-        <button type="submit" class="btn btn-default btn-lg btn-register">Confirm</button>
+      <button type="submit" class="btn btn-default btn-lg btn-register" name="submit">Confirm</button>
       </form>
 
     </div>

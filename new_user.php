@@ -105,7 +105,8 @@
 				$query = "INSERT INTO user(email, password, phone, first_name, last_name) VALUES('$email', '$password', '$phone', '$first_name', '$last_name')";
 				if(mysqli_query($db, $query))
 				{
-					$_SESSION['name'] = $name;
+					$_SESSION['name'] = $first_name;
+					$_SESSION['id'] = mysqli_insert_id($db);
 					header('location: /proj');
 				}
 				else
