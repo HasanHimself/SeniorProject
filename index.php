@@ -7,6 +7,10 @@
 	{
 		require_once('index_user.php');
 	}
+	elseif(isset($_SESSION['idEmployee']))
+	{
+		require_once('index_employee.php');
+	}
 	else
 	{
 		require_once('index_default.php');

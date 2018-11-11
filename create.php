@@ -72,7 +72,7 @@
     <div class="col-lg-12">
       <h1>Create a ticket</h1>
 
-      <form action="create.php" method="post" class="signupform">
+      <form class="signupform" method="post" action="create.php">
         <div class="form-group">
           <label for="category">Category</label>
           <select class="form-control" id="category">
@@ -89,10 +89,10 @@
           </select>
         </div>
 
-        <div class="form-group">
+<!--         <div class="form-group">
           <label for="location">Your location</label>
           <span style="font-style: italic">Google Maps [later1111]</span>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="branch">Branch</label>
@@ -108,12 +108,18 @@
 
 
 
-<!--         <div class="form-group">
-          <footer>Current ticket: 12</footer>
-          <footer>Last issued ticket: 21</footer>
-        </div> -->
+        <div class="form-group">
+          <button type="button" class="btn btn-info btn-md" id="show-info">Show information</button>
+        </div>
 
-      <button type="submit" class="btn btn-default btn-lg btn-register" name="submit">Confirm</button>
+
+
+        <div class="form-group" id="info">
+
+        </div>
+
+
+      <button type="submit" class="btn btn-default btn-lg btn-register" id="submit" name="submit">Confirm</button>
       </form>
 
     </div>

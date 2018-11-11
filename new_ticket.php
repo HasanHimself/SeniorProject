@@ -12,23 +12,30 @@
 
 	if(isset($_POST['submit']))
 	{
-		$branchId = $_POST['branch'];
 		$serviceId = $_POST['service'];
-		if(!empty($branchId) && !empty($serviceId))
+		if(!empty($serviceId))
 		{
-			$userId = $_SESSION['id'];
-			$currTicket = 2;
-			$lastTicket = 4;
+			
+			$query = "SELECT * FROM parameters WHERE serviceId = '$serviceId'";
+			$result = mysqli_fetch_assoc(mysqli_query($db, $query));
+			$currentTicket = $result['currentTicket'];
+			$lastTicket = $result['lastTicket'];
 			$number = $lastTicket + 1;
+			mysqli_query($db, "UPDATE parameters SET lastTicket=lastTicket+1 WHERE serviceId = '$serviceId'");
+			$userId = $_SESSION['id'];
 			date_default_timezone_set('Asia/Riyadh');
-			$startTime = date("h:i:sa", strtotime("now"));
-			$endTime = date("h:i:sa", strtotime("+30 minutes"));
-			$query = "INSERT INTO ticket(userId, serviceId, branchId, number, startTime, endTime) VALUES('$userId', '$serviceId', '$branchId', '$number', '$startTime', '$endTime')";
+			$today = date("Y-m-d");
+			$startTime = date("h:i:s", strtotime("now"));
+			$timeLeft = $result['estimatedTime'] * ($lastTicket - $currentTicket) / $result['countNum'];
+			$query = "INSERT INTO ticket(userId, serviceId, number, date, startTime, timeLeft) VALUES('$userId', '$serviceId','$number', '$today', '$startTime', '$timeLeft')";
 			if(!mysqli_query($db, $query))
 			{
 				echo mysqli_error($db);
 			}
-			//header('location: /');
+			else
+			{
+				header('location: /proj');
+			}
 		}
 	}
  ?>

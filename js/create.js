@@ -57,4 +57,41 @@ $(document).ready(function() {
 
   });
 
+  $("#show-info").click(function() {
+    $dropdownService = $("#service");
+    serviceVal = $dropdownService.val();
+    branchVal = $("#branch").val();
+    companyVal = $("#company").val();
+
+    if(companyVal && branchVal && serviceVal)
+    {
+      $.ajax({
+      url: 'paramgetter.php?service=' + $dropdownService.val(),
+      type: 'GET',
+      success: function(results) {
+      alert(results);
+      },
+      error: function() {
+        alert("epic fail");
+      }
+      });
+    }
+
+    else
+    {
+      alert("Please choose a service first");
+    }
+  });
+
+  // $("#show-info").click(function() {
+  //   $dropdownService = $("#service");
+  //   $.ajax({
+  //     url: 'paramgetter.php?service=' + $dropdownService.val(),
+  //     type: 'GET',
+  //     beforeSend: function(results) {
+
+  //     }
+  //   })
+  // })
+
 });
