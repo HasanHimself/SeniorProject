@@ -3,9 +3,13 @@
 	{
 		session_start();
 	}	
-	if(isset($_SESSION['name']))
+	if(isset($_SESSION['id']))
 	{
 		require_once('index_user.php');
+	}
+	elseif(isset($_SESSION['idEmployee']))
+	{
+		require_once('index_employee.php');
 	}
 	else
 	{

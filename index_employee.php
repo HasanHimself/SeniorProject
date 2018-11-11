@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Queue Waiting</title>
@@ -14,7 +19,7 @@
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
-	var modif = "AM";
+	  var modif = "AM";
     m = checkTime(m);
     s = checkTime(s);
 	if(h > 12) 
@@ -33,6 +38,7 @@
 </script>
 </head>
 <body onload="startTime()">
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -54,17 +60,14 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-    	<li><a href="signup.php">Sign Up</a></li>
-      <li class="dropdown">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="login.php">Regular user</a></li>
-          <li><a href="login-employee.php">Employee</a></li>
-          <li><a href="#">Administrator</a></li>
-        </ul>
-      </li>
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['name'];?><span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Profile</a></li>
+	          <li><a href="#">Settings</a></li>
+	          <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+	        </ul>
+        </li>
     </ul>
 
     <form class="navbar-form navbar-right" action="/results.php">
@@ -81,22 +84,7 @@
 	<div class="row">
 
   <div class="col-lg-8">
-      <h1>Are you tired of waiting in queues?</h1>
-      <p>Queue Waiting is a web application for ordering tickets online. By ordering a ticket through our platform, you're spared plenty of waiting time. Simply choose one of the many services available on our website and see how much the estimated time left for your ticket is and go get your order. It is simple, user-friendly and free!</p>
 
-    <div class="row top-buffer">
-      <div class="col-md-4">
-        <div class="main-steps"><img src="img/step1.png" class="center"/>Choose a service</div>
-      </div>
-      <div class="col-md-4">
-        <div class="main-steps"><img src="img/step2.png" class="center"/>Order a ticket</div>
-      </div>
-      <div class="col-md-4">
-        <div class="main-steps"><img src="img/step3.png" class="center"/>Use the ticket to get your order when it's time</div>
-      </div>
-    </div>
-
-    <a href="signup.php" class="btn btn-default btn-lg btn-register" role="button">Register now</a>
   </div>
 
 <div class="col-lg-4 footer-col">

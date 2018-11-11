@@ -49,7 +49,7 @@
 			{
 				array_push($errors, 'A phone number is required');
 			}
-		elseif(strlen($_POST['phone']) != 10 || !is_numeric($_POST['phone']))
+		elseif(strlen($_POST['phone']) != 10)
 		{
 			array_push($errors, 'Phone numbers need to have exactly 10 digits');
 		}
@@ -76,7 +76,7 @@
 			$last_name = $_POST['last_name'];
 		}
 		
-		$result = mysqli_query($db, "SELECT * FROM user WHERE email = '$email'");
+		$result = mysqli_query($db, "SELECT * FROM employee WHERE email = '$email'");
 
 		if(!$result)
 		{
@@ -92,7 +92,7 @@
 				array_push($errors, 'Email is already taken');
 			}	
 
-			$result = mysqli_query($db, "SELECT * FROM user WHERE phone = '$phone'");
+			$result = mysqli_query($db, "SELECT * FROM employee WHERE phone = '$phone'");
 			$num_rows = mysqli_num_rows($result);
 
 			if($num_rows > 0)
@@ -102,7 +102,7 @@
 			
 			if(count($errors) == 0)
 			{
-				$query = "INSERT INTO user(email, password, phone, first_name, last_name) VALUES('$email', '$password', '$phone', '$first_name', '$last_name')";
+				$query = "INSERT INTO employee(email, password, phone, first_name, last_name) VALUES('$email', '$password', '$phone', '$first_name', '$last_name')";
 				if(mysqli_query($db, $query))
 				{
 					$_SESSION['name'] = $first_name;

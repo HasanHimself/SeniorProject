@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(isset($_SESSION['name']))
+  {
+    header('location: /proj');
+  }
+  include('employee_session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,72 +40,48 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="proj/signup.php">Sign Up</a></li>
-        <li><a href="#">Login</a></li>
+    	<li><a href="proj/signup.php">Sign Up</a></li>
+      	<li class="active"><a href="#">Login</a></li>
     </ul>
 
     <form class="navbar-form navbar-right" action="/results.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+    	<div class="form-group">
+    		<input type="text" class="form-control" placeholder="Search">
+    	</div>
+    	<button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 </nav>
 
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Create a ticket</h1>
+      <h1>Employee login</h1>
+      <?php
+        if($error)
+        {
+          echo "<footer style='color: red; font-style: italic;'>Invalid email and password.</footer>";
+        }
+      ?>
 
-      <form action="#" class="signupform">
+      <form method="post" action="login-employee.php" class="signupform">
         <div class="form-group">
-          <label for="category">Category</label>
-          <select class="form-control" id="category">
-            <option>Communications</option>
-            <option>Resturants</option>
-            <option>Banks</option>
-          </select>
+          <label for="email">Email:</label>
+          <input type="text" name="email" class="form-control" placeholder="Enter your e-mail"required/>
         </div>
 
         <div class="form-group">
-          <label for="company">Company</label>
-          <select class="form-control" id="company">
-            <option>STC</option>
-            <option>Mobily</option>
-            <option>Zain</option>
-            <option>Virgin</option>
-          </select>
+          <label for="phone">Password:</label>
+          <input type="password" name="password" class="form-control" placeholder="Enter your password" required/>
         </div>
 
-        <div class="form-group">
-          <label for="location">Your location</label>
-          <span style="font-style: italic">Google Maps [later]</span>
-        </div>
-
-        <div class="form-group">
-          <label for="branch">Branch</label>
-          <select class="form-control" id="branch">
-            <option>Hira St., al-Nahdah</option>
-            <option>Taibah District</option>
-            <option>etcetc</option>
-          </select>
-        </div>
-
-
-
-        <div class="form-group">
-          <footer>Current ticket: 12</footer>
-          <footer>Last issued ticket: 21</footer>
-        </div>
-
-        <button type="submit" class="btn btn-default btn-lg btn-register">Confirm</button>
+        <button type="submit" name="submit" class="btn btn-default btn-lg btn-register">Submit</button>
       </form>
-
     </div>
   </div>
 </div>
+  
+
 
 </body>
 </html>
